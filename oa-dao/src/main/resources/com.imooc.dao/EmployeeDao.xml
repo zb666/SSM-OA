@@ -9,6 +9,7 @@
         <result property="departmentSn" column="department_sn" javaType="java.lang.String"/>
         <result property="post" column="post" javaType="java.lang.String"/>
         <result property="name" column="name" javaType="java.lang.String"/>
+        <!--通过外键department_sn 进行外键的关联 取别名的时候会关联到这里-->
         <association property="department" column="department_sn" javaType="com.imooc.oa.entity.Employee">
             <id property="sn" column="dsn" javaType="java.lang.String"/>
             <result property="name" column="dname" javaType="java.lang.String"/>
@@ -21,6 +22,11 @@
         left join department d
         on d.sn=e.department_sn
     </select>
+
+    <insert id="insert" parameterType="com.imooc.oa.entity.Employee">
+        insert into employee
+        values(#{sn},#{password},#{name},#{departmentSn},#{post}) -- 这里的顺序不能乱
+    </insert>
 
 </mapper>
 

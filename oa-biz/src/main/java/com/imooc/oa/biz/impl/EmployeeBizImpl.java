@@ -14,23 +14,28 @@ public class EmployeeBizImpl implements EmployeeBiz {
     @Autowired
     private EmployeeDao employeeDao;
 
-    public void add(Employee employee) {
 
+    @Override
+    public void add(Employee employee) {
     }
 
+    @Override
     public void edit(Employee employee) {
 
     }
 
+    @Override
     public void remove(String sn) {
 
     }
 
+    @Override
     public Employee get(String sn) {
         return null;
     }
 
+    @Override
     public List<Employee> getAll() {
-        return employeeDao.selectAll();
+        return null;
     }
 }
